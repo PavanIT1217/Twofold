@@ -4,8 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Twofold – the family vault</title>
-  <meta name="description" content="Twofold keeps your family's passwords, insurance policies, property papers and bank details in one encrypted vault, shared only between your phones. No servers, no accounts, nothing collected.">
-  <meta name="theme-color" content="#1f3a5f">
+  <meta name="description" content="Twofold keeps your family's passwords, insurance policies, property papers and bank details in one encrypted vault, shared only between the phones you pair. No servers, no accounts, nothing collected.">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="canonical" href="https://twofold.webappslab.com/">
+  <meta property="og:title" content="Twofold – the family vault">
+  <meta property="og:description" content="Everything your family would need, encrypted on your phones and shared only with the people you pair with. No servers. Nothing collected.">
+  <meta property="og:url" content="https://twofold.webappslab.com/">
+  <meta property="og:type" content="website">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,137 +23,210 @@
         <a href="#keep">What to keep</a>
         <a href="security.html">Security</a>
         <a href="#faq">FAQ</a>
-        <a href="support.html">Support</a>
+        <a class="pill" href="#get">Get Twofold</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="wrap">
-        <div>
-          <p class="eyebrow">The family vault</p>
-          <h1>Everything your family would need, locked away for the people who matter.</h1>
-          <p class="lead">Passwords, insurance policies, property papers, bank accounts and the "who do I call" details. Encrypted on your phone, shared only with your partner and family, and never on anyone's server. Not even ours.</p>
-          <div class="cta">
-            <span class="btn primary">Google Play <span class="soon">coming soon</span></span>
-            <span class="btn">App Store <span class="soon">coming soon</span></span>
+    <div class="dark">
+      <section class="hero">
+        <div class="wrap">
+          <div>
+            <p class="eyebrow">The family vault</p>
+            <h1>Fold it away. <em class="gold">Together.</em></h1>
+            <p class="lead">Passwords, insurance policies, property papers, bank details and the "who do I call" notes, encrypted on your phone and shared only with the people you pair with in person. Not on our servers. We don't have any.</p>
+            <div class="cta" id="get">
+              <span class="btn primary">Google Play <span class="soon">Soon</span></span>
+              <span class="btn">App Store <span class="soon">Soon</span></span>
+            </div>
+            <div class="hero-note"><span>No sign-up</span><span>Works offline</span><span>Android &amp; iPhone</span></div>
+          </div>
+          <div class="fold-stage" aria-hidden="true">
+            <div class="doc">
+              <div class="doc-half doc-left">
+                <span class="tag">Policy</span>
+                <div class="line title"></div>
+                <div class="line"></div>
+                <div class="line short"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line short"></div>
+                <div class="stamp"></div>
+              </div>
+              <div class="doc-half doc-right">
+                <span class="tag">Nominee</span>
+                <div class="line"></div>
+                <div class="line short"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line short"></div>
+                <div class="line"></div>
+              </div>
+              <div class="doc-back">
+                <svg viewBox="0 0 64 64"><rect x="14" y="28" width="36" height="28" rx="6" fill="#e9b949"/><path d="M22 28v-6a10 10 0 0 1 20 0v6" fill="none" stroke="#e9b949" stroke-width="5"/><circle cx="32" cy="40" r="4" fill="#0f2240"/><path d="M30.5 42h3l1 7h-5z" fill="#0f2240"/></svg>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="mock" aria-hidden="true">
-          <div class="mock-title">Our vault</div>
-          <div class="mock-card mock-due"><b>Car insurance renews in 7 days</b><span>Tap to see the policy</span></div>
-          <div class="mock-grid">
-            <div class="mock-card"><b>Insurance</b><span>6</span></div>
-            <div class="mock-card"><b>Property</b><span>2</span></div>
-            <div class="mock-card"><b>Bank</b><span>5</span></div>
-            <div class="mock-card"><b>Passwords</b><span>41</span></div>
-            <div class="mock-card"><b>IDs</b><span>8</span></div>
-            <div class="mock-card"><b>Contacts</b><span>4</span></div>
+      </section>
+
+      <div class="zero">
+        <div class="wrap">
+          <div class="zero-grid">
+            <div class="zero-item"><b>0</b><span>servers</span><p>Your vault lives on your phones. We run nothing that could hold it.</p></div>
+            <div class="zero-item"><b>0</b><span>accounts</span><p>No email, no phone number, no sign-up with us. Ever.</p></div>
+            <div class="zero-item"><b>0</b><span>trackers</span><p>No analytics or ads in the app, and none on this site.</p></div>
+            <div class="zero-item"><b>2+</b><span>keys to open it</span><p>Your master password and your phone. Share it with up to six family members.</p></div>
           </div>
-          <div class="mock-card"><b>📌 Read this first</b><span>A note for the family</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="how">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">How it works</span>
+          <h2>Three steps. No cloud account with us.</h2>
+          <p>Twofold trusts exactly one thing: the phones in your family's hands.</p>
+        </div>
+        <div class="grid three steps">
+          <div class="card step reveal">
+            <h3>Create your vault</h3>
+            <p>Choose a master password. Twofold prints you a recovery kit to keep with your property papers or in your bank locker.</p>
+          </div>
+          <div class="card step reveal">
+            <h3>Pair in person</h3>
+            <p>Scan each other's QR codes and check that the numbers match. Only phones you've paired this way can ever open your vault.</p>
+          </div>
+          <div class="card step reveal">
+            <h3>Sync at home</h3>
+            <p>On the same Wi-Fi, your phones swap changes directly and encrypted. Each phone also keeps an encrypted backup in its own Google Drive or iCloud.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="how" class="alt">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>How it works</h2>
-          <p>No sign-up, no cloud account with us, nothing to trust except the phones in your hands.</p>
+    <div class="dark">
+      <section class="demo">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">See it for yourself</span>
+            <h2>This is all anyone else ever sees.</h2>
+            <p>Type something private. It's encrypted right here in your browser with a key that never leaves this page. Twofold does the same on your phone before anything is saved, synced or backed up.</p>
+          </div>
+          <div class="demo-box reveal">
+            <div class="demo-pane">
+              <label for="plain">What you type</label>
+              <textarea id="plain" spellcheck="false">LIC policy 4471 2290 · nominee: Priya · premium due 15 March</textarea>
+            </div>
+            <div class="demo-arrow" aria-hidden="true"><span>→</span></div>
+            <div class="demo-pane">
+              <span class="label">What gets stored</span>
+              <div class="cipher" id="cipher" aria-live="polite">Encrypting…</div>
+            </div>
+          </div>
+          <p class="demo-foot">This page uses your browser's built-in AES-256-GCM. The app uses libsodium's XChaCha20-Poly1305. <a href="security.html">How Twofold's encryption works →</a></p>
         </div>
-        <div class="grid three">
-          <div class="card">
-            <div class="step-num">1</div>
-            <h3>Create your vault</h3>
-            <p>Pick a master password. Twofold makes a recovery kit you print and keep with your important papers.</p>
-          </div>
-          <div class="card">
-            <div class="step-num">2</div>
-            <h3>Pair in person</h3>
-            <p>Scan each other's QR code once. That swaps the keys that let only your phones open the vault. Add up to six family members.</p>
-          </div>
-          <div class="card">
-            <div class="step-num">3</div>
-            <h3>Stay in sync at home</h3>
-            <p>When your phones are on the same Wi-Fi, they swap changes directly and encrypted. Each phone also keeps an encrypted backup in its own Google Drive or iCloud.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <section id="keep">
       <div class="wrap">
-        <div class="section-head">
-          <h2>What to keep in Twofold</h2>
-          <p>Ready-made templates for the things families scramble to find when they need them most, plus your own custom fields.</p>
+        <div class="section-head reveal">
+          <span class="kicker">What to keep</span>
+          <h2>The things families scramble for on the hardest days.</h2>
+          <p>Ready-made templates, custom fields, and room for scans of the originals.</p>
         </div>
-        <div class="chips">
-          <span class="chip">🛡️ Life, health &amp; vehicle insurance</span>
-          <span class="chip">🏠 Property &amp; registration papers</span>
-          <span class="chip">🏦 Bank accounts &amp; lockers</span>
-          <span class="chip">📈 FDs, PPF, EPF, NPS &amp; demat</span>
-          <span class="chip">🔑 Passwords &amp; logins</span>
-          <span class="chip">🪪 Aadhaar, PAN, passports</span>
-          <span class="chip">🚗 Vehicles &amp; RC</span>
-          <span class="chip">💳 Loans</span>
-          <span class="chip">📞 Doctor, lawyer, CA</span>
-          <span class="chip">📄 Scanned documents</span>
-          <span class="chip">📌 A "read this first" letter</span>
-        </div>
-        <div class="grid three" style="margin-top:32px">
-          <div class="card">
-            <h3>Renewal reminders</h3>
-            <p>Premiums, policy renewals and tax dates. Reminders are worked out on your phone and never show private details on the lock screen.</p>
-          </div>
-          <div class="card">
-            <h3>"What to do" for every item</h3>
-            <p>Who to call, which helpline, where the original papers are kept. The answers someone needs on a hard day.</p>
-          </div>
-          <div class="card">
-            <h3>Roles for the family</h3>
-            <p>Owners manage members, editors add and change things, viewers (say, your parents) can only look.</p>
-          </div>
+        <div class="keep-grid">
+          <div class="keep reveal"><span class="ico">🛡️</span><b>Insurance</b><span>Life, health, vehicle, home. Policy numbers, nominees, helplines.</span></div>
+          <div class="keep reveal"><span class="ico">🏠</span><b>Property</b><span>Registration, survey numbers, tax receipts, where the originals are.</span></div>
+          <div class="keep reveal"><span class="ico">🏦</span><b>Banking</b><span>Accounts, lockers, FDs, nominees and branch contacts.</span></div>
+          <div class="keep reveal"><span class="ico">📈</span><b>Investments</b><span>PPF, EPF, NPS, demat and mutual funds.</span></div>
+          <div class="keep reveal"><span class="ico">🔑</span><b>Passwords</b><span>Logins for everything the family shares.</span></div>
+          <div class="keep reveal"><span class="ico">🪪</span><b>IDs</b><span>Aadhaar, PAN, passports, licences, with scans.</span></div>
+          <div class="keep reveal"><span class="ico">🚗</span><b>Vehicles &amp; loans</b><span>RC, insurance renewals, EMIs and lenders.</span></div>
+          <div class="keep reveal"><span class="ico">📌</span><b>Read this first</b><span>A letter to your family: what to do, who to call.</span></div>
         </div>
       </div>
     </section>
 
-    <section class="alt">
-      <div class="wrap">
-        <div class="grid two">
-          <div class="card promise">
-            <h2>Our promise</h2>
-            <ul class="checklist">
-              <li>Everything is encrypted on your phone before it is stored or sent anywhere.</li>
-              <li>Only phones you paired in person can open your vault.</li>
-              <li>Backups go to <em>your</em> Google Drive or iCloud, encrypted, in a private app folder.</li>
-              <li>Works fully offline.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h2>What we don't have</h2>
-            <ul class="checklist no">
-              <li>No servers holding your data. We don't run any.</li>
-              <li>No Twofold accounts, emails or phone numbers.</li>
-              <li>No analytics, ads or tracking. Not in the app, not on this website.</li>
-              <li>No way for us to see, recover or hand over your data.</li>
-            </ul>
+    <section style="padding-top:0">
+      <div class="wrap phone-row">
+        <div class="mock reveal" aria-hidden="true">
+          <div class="mock-screen">
+            <div class="mock-title">Our vault</div>
+            <div class="mock-card mock-due"><b>Car insurance renews in 7 days</b><span>Tap to see the policy</span></div>
+            <div class="mock-grid">
+              <div class="mock-card"><b>Insurance</b><span>6 items</span></div>
+              <div class="mock-card"><b>Property</b><span>2 items</span></div>
+              <div class="mock-card"><b>Banking</b><span>5 items</span></div>
+              <div class="mock-card"><b>Passwords</b><span>41 items</span></div>
+            </div>
+            <div class="mock-card"><b>📌 Read this first</b><span>From Ravi · updated in March</span></div>
+            <div class="mock-card"><b>👥 Family</b><span>Ravi, Priya, Amma (viewer)</span></div>
           </div>
         </div>
-        <p style="margin-top:20px"><a href="security.html">Read how the encryption works →</a></p>
+        <div>
+          <div class="section-head reveal" style="margin-bottom:32px">
+            <span class="kicker">Made for real life</span>
+            <h2>Not just passwords.</h2>
+          </div>
+          <ul class="feature-list">
+            <li class="reveal"><span class="ico">⏰</span><div><h3>Renewal reminders</h3><p>Premiums, renewals and tax dates, worked out on your phone. Lock-screen alerts never show the private details.</p></div></li>
+            <li class="reveal"><span class="ico">🧭</span><div><h3>"What to do" on every item</h3><p>Which helpline to call, which agent to contact, which cupboard holds the originals.</p></div></li>
+            <li class="reveal"><span class="ico">👥</span><div><h3>Roles for the family</h3><p>Owners manage members, editors add and change things, viewers (say, your parents) can only look.</p></div></li>
+            <li class="reveal"><span class="ico">✈️</span><div><h3>Always with you</h3><p>Every paired phone holds the whole vault, so it opens in a hospital corridor or a bank with no signal.</p></div></li>
+          </ul>
+        </div>
       </div>
     </section>
+
+    <div class="dark">
+      <section>
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Our promise</span>
+            <h2>Private by construction, not by policy.</h2>
+            <p>We didn't just promise not to look. We built Twofold so there's nothing for us to look at.</p>
+          </div>
+          <div class="promise-grid">
+            <div class="promise-card yes reveal">
+              <h3>What you get</h3>
+              <ul class="checklist">
+                <li>Encryption on your phone before anything is stored or sent.</li>
+                <li>Only phones you paired in person can open the vault.</li>
+                <li>Encrypted backups in <em>your</em> Google Drive or iCloud.</li>
+                <li>Every item, document and note works fully offline.</li>
+              </ul>
+            </div>
+            <div class="promise-card no reveal">
+              <h3>What we don't have</h3>
+              <ul class="checklist no">
+                <li>No servers holding your data.</li>
+                <li>No Twofold accounts, emails or phone numbers.</li>
+                <li>No analytics, ads or tracking. Not even on this website.</li>
+                <li>No way to see, recover or hand over your vault.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <section id="faq">
       <div class="wrap">
-        <div class="section-head"><h2>Questions</h2></div>
+        <div class="section-head reveal">
+          <span class="kicker">Questions</span>
+          <h2>Good to know.</h2>
+        </div>
         <details>
           <summary>What if I forget my master password?</summary>
           <p>Use the recovery kit you printed when you set up Twofold. Another paired family member can also still open the shared vault. We can't reset it for you, because we never have your keys. That's what keeps your data private.</p>
         </details>
         <details>
           <summary>What if I lose my phone?</summary>
-          <p>The vault is locked with your master password and fingerprint or face unlock, so whoever finds the phone can't read it. On your new phone, restore the encrypted backup from your Google Drive or iCloud, or pair again with your partner's phone.</p>
+          <p>The vault is locked with your master password and fingerprint or face unlock, so whoever finds the phone can't read it. On your new phone, restore the encrypted backup from your Google Drive or iCloud, or pair again with a family member's phone.</p>
         </details>
         <details>
           <summary>Do we have to be at home to sync?</summary>
@@ -164,11 +242,23 @@
         </details>
       </div>
     </section>
+
+    <div class="dark">
+      <section class="closing">
+        <div class="wrap">
+          <h2 class="reveal">The kindest thing you can leave your family is <em class="gold">knowing where everything is.</em></h2>
+          <div class="cta reveal">
+            <span class="btn primary">Google Play <span class="soon">Soon</span></span>
+            <span class="btn">App Store <span class="soon">Soon</span></span>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <span>© 2026 Twofold</span>
+      <span>© 2026 Twofold · a <a href="https://webappslab.com">WebAppsLab</a> app</span>
       <nav aria-label="Footer">
         <a href="security.html">Security</a>
         <a href="privacy.html">Privacy</a>
@@ -177,5 +267,54 @@
       </nav>
     </div>
   </footer>
+
+  <script>
+    document.documentElement.classList.add('js');
+
+    // Reveal sections as they scroll into view.
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+
+    // Live encryption demo: real AES-256-GCM in the browser, key kept in memory only.
+    (function () {
+      var plain = document.getElementById('plain');
+      var out = document.getElementById('cipher');
+      var subtle = window.crypto && window.crypto.subtle;
+      if (!subtle) {
+        out.textContent = 'Your browser does not offer encryption on this page.';
+        return;
+      }
+      var keyPromise = subtle.generateKey({ name: 'AES-GCM', length: 256 }, false, ['encrypt']);
+      var pending = 0;
+      function toBase64(buf) {
+        var s = '';
+        new Uint8Array(buf).forEach(function (b) { s += String.fromCharCode(b); });
+        return btoa(s);
+      }
+      function update() {
+        var ticket = ++pending;
+        var iv = window.crypto.getRandomValues(new Uint8Array(12));
+        keyPromise.then(function (key) {
+          return subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, new TextEncoder().encode(plain.value));
+        }).then(function (ct) {
+          if (ticket !== pending) return;
+          out.textContent = toBase64(iv) + toBase64(ct);
+        });
+      }
+      plain.addEventListener('input', update);
+      update();
+    })();
+  </script>
 </body>
 </html>

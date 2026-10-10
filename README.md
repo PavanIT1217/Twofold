@@ -26,9 +26,9 @@ flutter run
 
 libsodium is built and bundled automatically by the `sodium` package's build hooks.
 
-## Publish the website
+## Website
 
-In the repository on GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**. Every push to `main` that changes `website/` then publishes it. To use your own domain, add a `website/CNAME` file containing the domain and set up DNS.
+Live at **https://twofold.webappslab.com**. Every push to `main` that changes `website/` publishes it through GitHub Pages (Settings → Pages → Source: GitHub Actions). `website/CNAME` holds the domain.
 
 ## How the encryption fits together
 
@@ -55,4 +55,4 @@ Every encrypted blob is bound to what it belongs to (vault, item, version, key v
 ## Before release
 
 - Replace the `support@example.com` placeholder in `website/privacy.html`, `terms.html` and `support.html` with the real contact address.
-- The app ID is `app.twofold.twofold` on both Android and iOS. It can't be changed after the first store release, so change it now if you want a different one.
+- The app ID is `com.webappslab.twofold` on both Android and iOS.
