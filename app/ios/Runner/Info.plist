@@ -66,5 +66,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Twofold uses the camera to scan your family's pairing codes and to scan documents into your vault.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Twofold lets you add photos of documents to your vault. They are encrypted on this phone.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Unlock your Twofold vault with Face ID instead of typing your master password.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Twofold finds your paired family phones on your home Wi-Fi to keep your vault in sync. Nothing leaves your network.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_twofold._tcp</string>
+	</array>
 </dict>
 </plist>

@@ -200,6 +200,80 @@ void main() {
     });
   });
 
+  group('password and recovery key changes', () {
+    test('changing the password keeps the recovery key working', () {
+      final recovery = crypto.recoveryKeys.generate();
+      final created = crypto.identities.create(
+        password: 'old',
+        recoveryKey: recovery,
+        kdfParams: fastKdf,
+      );
+      final changed = crypto.identities.changePassword(
+        created.locked,
+        created.identity,
+        newPassword: 'new',
+        kdfParams: crypto.kdf.newParams(opsLimit: 1, memLimit: 8 * 1024 * 1024),
+      );
+      expect(
+        () => crypto.identities.unlockWithPassword(changed, 'old'),
+        throwsA(isA<TwofoldCryptoException>()),
+      );
+      expect(
+        crypto.identities.unlockWithPassword(changed, 'new').publicKey,
+        created.identity.publicKey,
+      );
+      expect(
+        crypto.identities.unlockWithRecoveryKey(changed, recovery).publicKey,
+        created.identity.publicKey,
+      );
+    });
+
+    test('a new recovery key replaces the old one', () {
+      final oldKey = crypto.recoveryKeys.generate();
+      final newKey = crypto.recoveryKeys.generate();
+      final created = crypto.identities.create(
+        password: 'pw',
+        recoveryKey: oldKey,
+        kdfParams: fastKdf,
+      );
+      final replaced = crypto.identities.replaceRecoveryKey(
+        created.locked,
+        created.identity,
+        newKey,
+      );
+      expect(
+        () => crypto.identities.unlockWithRecoveryKey(replaced, oldKey),
+        throwsA(isA<TwofoldCryptoException>()),
+      );
+      expect(
+        crypto.identities.unlockWithRecoveryKey(replaced, newKey).publicKey,
+        created.identity.publicKey,
+      );
+      expect(
+        crypto.identities.unlockWithPassword(replaced, 'pw').publicKey,
+        created.identity.publicKey,
+      );
+    });
+
+    test('a biometric key must match the identity', () {
+      final created = crypto.identities.create(
+        password: 'pw',
+        recoveryKey: crypto.recoveryKeys.generate(),
+        kdfParams: fastKdf,
+      );
+      final raw = created.identity.secretKey.extractBytes();
+      expect(
+        crypto.identities.fromSecretKey(created.locked, raw).publicKey,
+        created.identity.publicKey,
+      );
+      final other = crypto.sodium.crypto.box.keyPair().secretKey.extractBytes();
+      expect(
+        () => crypto.identities.fromSecretKey(created.locked, other),
+        throwsA(isA<TwofoldCryptoException>()),
+      );
+    });
+  });
+
   group('vault key sharing', () {
     late Identity me;
     late Identity partner;

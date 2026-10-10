@@ -115,6 +115,61 @@ class Identities {
     }
   }
 
+  /// Locks [identity] with a new master password, keeping the existing
+  /// recovery key.
+  LockedIdentity changePassword(
+    LockedIdentity locked,
+    Identity identity, {
+    required String newPassword,
+    KdfParams? kdfParams,
+  }) {
+    final params = kdfParams ?? _kdf.newParams();
+    final passwordKey = _kdf.derive(newPassword, params);
+    try {
+      return LockedIdentity(
+        publicKey: locked.publicKey,
+        kdf: params,
+        byPassword: _sealed.wrapKey(
+          wrappingKey: passwordKey,
+          key: identity.secretKey,
+          context: '$_context|password',
+        ),
+        byRecoveryKey: locked.byRecoveryKey,
+      );
+    } finally {
+      passwordKey.dispose();
+    }
+  }
+
+  /// Locks [identity] with a new recovery key, keeping the master password.
+  /// The old recovery kit stops working.
+  LockedIdentity replaceRecoveryKey(
+    LockedIdentity locked,
+    Identity identity,
+    SecureKey newRecoveryKey,
+  ) => LockedIdentity(
+    publicKey: locked.publicKey,
+    kdf: locked.kdf,
+    byPassword: locked.byPassword,
+    byRecoveryKey: _sealed.wrapKey(
+      wrappingKey: newRecoveryKey,
+      key: identity.secretKey,
+      context: '$_context|recovery',
+    ),
+  );
+
+  /// Rebuilds an identity from a secret key released by biometrics, checking
+  /// it against the stored public key.
+  Identity fromSecretKey(LockedIdentity locked, Uint8List secretKey) {
+    final key = _sodium.secureCopy(secretKey);
+    final derivedPublic = _sodium.crypto.scalarmult.base(n: key);
+    if (!bytesEqual(derivedPublic, locked.publicKey)) {
+      key.dispose();
+      throw const TwofoldCryptoException('Stored key does not match.');
+    }
+    return Identity(publicKey: locked.publicKey, secretKey: key);
+  }
+
   /// Unlocks with the master password.
   Identity unlockWithPassword(LockedIdentity locked, String password) {
     final passwordKey = _kdf.derive(password, locked.kdf);
