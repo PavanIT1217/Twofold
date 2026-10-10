@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Twofold Security</title>
+  <meta name="description" content="How Twofold encrypts your family vault: Argon2id, X25519 and XChaCha20-Poly1305 from libsodium, with no servers involved.">
+  <meta name="theme-color" content="#1f3a5f">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="assets/logo.svg" alt="">Twofold</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./#how">How it works</a>
+        <a href="./#keep">What to keep</a>
+        <a href="security.html" aria-current="page">Security</a>
+        <a href="./#faq">FAQ</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="wrap">
+      <h1>How Twofold keeps your vault safe</h1>
+      <p>Twofold is built so that nobody but the people you pair with can read your vault, including us. There's no Twofold server, so there's nothing to break into. Here is exactly how it works.</p>
+
+      <h2>The keys</h2>
+      <div class="diagram">
+<pre>Master password ──Argon2id──▶ Password key
+                                  │ unlocks
+                                  ▼
+                  Your private key (X25519)
+                                  │ opens
+                                  ▼
+       Vault key, sealed separately for each member
+                                  │ unlocks
+                                  ▼
+          Item keys ──▶ items and attached documents</pre>
+      </div>
+      <ul>
+        <li><strong>Master password:</strong> turned into a key with <strong>Argon2id</strong>, a deliberately slow, memory-hard function that makes guessing passwords very expensive. Your password never leaves your phone.</li>
+        <li><strong>Your identity:</strong> each phone makes an <strong>X25519</strong> key pair. The private key is stored only encrypted.</li>
+        <li><strong>The vault key:</strong> a random 256-bit key, sealed separately to each family member's public key. Adding someone means sealing one more copy for them.</li>
+        <li><strong>Items:</strong> each item has its own random key and is encrypted with <strong>XChaCha20-Poly1305</strong>. Any tampering is detected and rejected.</li>
+        <li><strong>Documents:</strong> scans and PDFs are encrypted in chunks with libsodium's <strong>secretstream</strong>.</li>
+      </ul>
+      <p>All of this uses <strong>libsodium</strong>, a widely used and audited cryptography library. Twofold doesn't invent its own encryption.</p>
+
+      <h2>Pairing in person</h2>
+      <p>When you add a family member, you scan each other's QR code. The code holds a fingerprint of each phone's public key, so nobody can secretly slip in a key of their own. The vault key is then sealed to the new member's verified key.</p>
+
+      <h2>Syncing between phones</h2>
+      <p>Paired phones on the same Wi-Fi network find each other and exchange changes over an encrypted, authenticated connection using the keys you swapped when pairing. Other devices on the network can't read or fake the traffic. Only encrypted items are ever sent.</p>
+
+      <h2>Backups</h2>
+      <p>Each phone can keep one encrypted backup file in its owner's own cloud: a private, hidden app folder in Google Drive on Android, or iCloud on iPhone. The backup is encrypted before upload, so Google or Apple only see an unreadable file. Twofold only ever asks for access to that private app folder, never to the rest of your Drive.</p>
+
+      <h2>On your phone</h2>
+      <ul>
+        <li>Unlock with fingerprint or face, backed by the phone's secure hardware (Android Keystore, iOS Keychain).</li>
+        <li>Auto-lock when you leave the app.</li>
+        <li>Screenshots and the app-switcher preview are blocked.</li>
+        <li>Copied passwords are cleared from the clipboard after 30 seconds.</li>
+        <li>Notifications never show private details.</li>
+      </ul>
+
+      <h2>The honest trade-offs</h2>
+      <ul>
+        <li><strong>We can't recover your vault.</strong> Keep your printed recovery kit safe. If you lose your master password, recovery kit and every paired phone, the data can't be recovered by anyone.</li>
+        <li><strong>A phone that is unlocked and in someone else's hands</strong> is outside what any app can protect. Keep your phone's screen lock on.</li>
+      </ul>
+
+      <h2>Found a security issue?</h2>
+      <p>Please tell us privately through the <a href="support.html">support page</a> before sharing it publicly. We'll reply quickly.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Twofold</span>
+      <nav aria-label="Footer">
+        <a href="security.html">Security</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
