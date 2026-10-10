@@ -1,71 +1,45 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
+
+import 'app/app_controller.dart';
 import 'core/crypto/twofold_crypto.dart';
+import 'data/vault_store.dart';
+import 'services/screen_guard.dart';
+import 'ui/app_scope.dart';
+import 'ui/root.dart';
+import 'ui/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await ScreenGuard().enable();
   final crypto = await TwofoldCrypto.init();
-  runApp(TwofoldApp(crypto: crypto));
+  final support = await getApplicationSupportDirectory();
+  final controller = AppController(
+    crypto: crypto,
+    store: VaultStore(Directory(p.join(support.path, 'twofold'))),
+  );
+  runApp(TwofoldApp(controller: controller));
+  await controller.init();
 }
 
 class TwofoldApp extends StatelessWidget {
-  const TwofoldApp({super.key, required this.crypto});
+  const TwofoldApp({super.key, required this.controller});
 
-  final TwofoldCrypto crypto;
-
-  static const _brand = Color(0xFF1F3A5F);
+  final AppController controller;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Twofold',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: _brand),
-        scaffoldBackgroundColor: const Color(0xFFFBF8F2),
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: _brand,
-          brightness: Brightness.dark,
-        ),
-      ),
-      home: const WelcomeScreen(),
-    );
-  }
-}
-
-/// Placeholder until onboarding (milestone 2) lands.
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(
-                Icons.lock_outline,
-                size: 48,
-                color: theme.colorScheme.primary,
-              ),
-              const SizedBox(height: 24),
-              Text('Twofold', style: theme.textTheme.displaySmall),
-              const SizedBox(height: 12),
-              Text(
-                'Your family vault. Encrypted on your phone, shared only with '
-                'the people you pair with.',
-                style: theme.textTheme.titleMedium,
-              ),
-            ],
-          ),
-        ),
+    return AppScope(
+      controller: controller,
+      child: MaterialApp(
+        title: 'Twofold',
+        debugShowCheckedModeBanner: false,
+        theme: buildTheme(Brightness.light),
+        darkTheme: buildTheme(Brightness.dark),
+        home: const Root(),
       ),
     );
   }
