@@ -1,0 +1,14 @@
+{
+  "name": "Twofold – the encrypted family vault",
+  "short_name": "Twofold",
+  "description": "Passwords, insurance, property papers and bank details in one encrypted family vault, shared only between the phones you pair.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/logo.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
