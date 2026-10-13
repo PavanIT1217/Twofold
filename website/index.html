@@ -3,21 +3,158 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Twofold – the family vault</title>
-  <meta name="description" content="Twofold keeps your family's passwords, insurance policies, property papers and bank details in one encrypted vault, shared only between the phones you pair. No servers, no accounts, nothing collected.">
+  <title>Twofold – Encrypted Family Vault for Passwords &amp; Documents</title>
+  <meta name="description" content="Keep passwords, insurance policies, property papers and bank details in one encrypted family vault, shared only between the phones you pair. No servers, no sign-up.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="WebAppsLab">
+  <meta name="application-name" content="Twofold">
+  <meta name="apple-mobile-web-app-title" content="Twofold">
   <meta name="theme-color" content="#0b1220">
+  <meta name="format-detection" content="telephone=no">
   <link rel="canonical" href="https://twofold.webappslab.com/">
-  <meta property="og:title" content="Twofold – the family vault">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Twofold">
+  <meta property="og:title" content="Twofold – the encrypted family vault">
   <meta property="og:description" content="Everything your family would need, encrypted on your phones and shared only with the people you pair with. No servers. Nothing collected.">
   <meta property="og:url" content="https://twofold.webappslab.com/">
-  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://twofold.webappslab.com/assets/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Twofold, the encrypted family vault: no servers, no accounts, Android and iPhone">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Twofold – the encrypted family vault">
+  <meta name="twitter:description" content="Everything your family would need, encrypted on your phones and shared only with the people you pair with. No servers. Nothing collected.">
+  <meta name="twitter:image" content="https://twofold.webappslab.com/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="Twofold, the encrypted family vault">
+
+  <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
   <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://twofold.webappslab.com/#website",
+        "url": "https://twofold.webappslab.com/",
+        "name": "Twofold",
+        "description": "Keep passwords, insurance policies, property papers and bank details in one encrypted family vault, shared only between the phones you pair. No servers, no sign-up.",
+        "publisher": {
+          "@id": "https://twofold.webappslab.com/#org"
+        },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://twofold.webappslab.com/#org",
+        "name": "WebAppsLab",
+        "url": "https://webappslab.com"
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "https://twofold.webappslab.com/#app",
+        "name": "Twofold",
+        "alternateName": "Twofold family vault",
+        "url": "https://twofold.webappslab.com/",
+        "description": "Keep passwords, insurance policies, property papers and bank details in one encrypted family vault, shared only between the phones you pair. No servers, no sign-up.",
+        "operatingSystem": "Android, iOS",
+        "applicationCategory": "SecurityApplication",
+        "image": "https://twofold.webappslab.com/assets/icon-512.png",
+        "screenshot": "https://twofold.webappslab.com/assets/og-image.jpg",
+        "publisher": {
+          "@id": "https://twofold.webappslab.com/#org"
+        },
+        "featureList": [
+          "End-to-end encrypted family vault (Argon2id, X25519, XChaCha20-Poly1305)",
+          "Share with up to six family members with Owner, Editor and Viewer roles",
+          "Pair phones in person by QR code",
+          "Phone-to-phone sync over home Wi-Fi, no servers",
+          "Templates for insurance, property, bank accounts, lockers, investments, IDs and passwords",
+          "Encrypted document scans and attachments",
+          "Renewal and premium reminders",
+          "Encrypted backup to your own Google Drive or a backup file",
+          "Printable recovery kit",
+          "Fingerprint and face unlock"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://twofold.webappslab.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What if I forget my master password?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use the recovery kit you printed when you set up Twofold. Another paired family member can also still open the shared vault. We can't reset it for you, because we never have your keys. That's what keeps your data private."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I lose my phone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The vault is locked with your master password and fingerprint or face unlock, so whoever finds the phone can't read it. On your new phone, restore the encrypted backup from your Google Drive or a backup file, or pair again with a family member's phone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do we have to be at home to sync?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your phones sync when they're on the same Wi-Fi network. Everyone can always open their own copy anytime, anywhere, even offline. Changes reach the other phones the next time you're together on Wi-Fi."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can more than two people share a vault?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Twofold is made for couples first, and you can add up to six family members, each with their own role."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is Twofold different from a password manager?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Password managers are built for logins. Twofold is built for everything your family would need in an emergency: insurance policies and nominees, bank accounts and lockers, property papers, investments, IDs and \"what to do\" notes, with scans of the originals and renewal reminders. Passwords fit in too."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is my data stored?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only on your family's phones, encrypted, plus an encrypted backup in your own Google Drive or a backup file you keep, if you choose. Twofold has no servers, so we never see or store any of it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work between Android and iPhone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. An Android phone and an iPhone can pair and sync with each other."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="./"><img src="assets/logo.svg" alt="">Twofold</a>
+      <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="32" height="32">Twofold</a>
       <nav class="nav" aria-label="Main">
         <a href="#how">How it works</a>
         <a href="#keep">What to keep</a>
@@ -33,7 +170,7 @@
       <section class="hero">
         <div class="wrap">
           <div>
-            <p class="eyebrow">The family vault</p>
+            <p class="eyebrow">The encrypted family vault for Android &amp; iPhone</p>
             <h1>Fold it away. <em class="gold">Together.</em></h1>
             <p class="lead">Passwords, insurance policies, property papers, bank details and the "who do I call" notes, encrypted on your phone and shared only with the people you pair with in person. Not on our servers. We don't have any.</p>
             <div class="cta" id="get">
@@ -148,6 +285,7 @@
           <div class="keep reveal"><span class="ico">🚗</span><b>Vehicles &amp; loans</b><span>RC, insurance renewals, EMIs and lenders.</span></div>
           <div class="keep reveal"><span class="ico">📌</span><b>Read this first</b><span>A letter to your family: what to do, who to call.</span></div>
         </div>
+        <p class="keep-more reveal"><a href="checklist.html">Not sure where to start? Read the free family emergency information checklist →</a></p>
       </div>
     </section>
 
@@ -237,6 +375,14 @@
           <p>Yes. Twofold is made for couples first, and you can add up to six family members, each with their own role.</p>
         </details>
         <details>
+          <summary>How is Twofold different from a password manager?</summary>
+          <p>Password managers are built for logins. Twofold is built for everything your family would need in an emergency: insurance policies and nominees, bank accounts and lockers, property papers, investments, IDs and "what to do" notes, with scans of the originals and renewal reminders. Passwords fit in too.</p>
+        </details>
+        <details>
+          <summary>Where is my data stored?</summary>
+          <p>Only on your family's phones, encrypted, plus an encrypted backup in your own Google Drive or a backup file you keep, if you choose. Twofold has no servers, so we never see or store any of it.</p>
+        </details>
+        <details>
           <summary>Does it work between Android and iPhone?</summary>
           <p>Yes. An Android phone and an iPhone can pair and sync with each other.</p>
         </details>
@@ -260,6 +406,7 @@
     <div class="wrap">
       <span>© 2026 Twofold · a <a href="https://webappslab.com">WebAppsLab</a> app</span>
       <nav aria-label="Footer">
+        <a href="checklist.html">Family checklist</a>
         <a href="security.html">Security</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>

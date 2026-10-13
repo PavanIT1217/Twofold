@@ -35,7 +35,7 @@ Website: **https://twofold.webappslab.com**
 | `app/lib/ui/` | Screens |
 | `app/test/` | Tests for crypto, the vault, sync over real sockets, the app controller and reminders |
 | `website/` | Static website. No trackers, web fonts or third-party requests. |
-| `.github/workflows/` | `app.yml` checks formatting, analysis and tests and builds an Android APK; `website.yml` publishes `website/` to GitHub Pages |
+| `.github/workflows/` | `app.yml` checks formatting, analysis and tests and builds an Android APK; `website.yml` checks the website's SEO basics and publishes `website/` to GitHub Pages |
 
 ## Run the app
 
@@ -77,6 +77,19 @@ Backups use the `drive.appdata` scope (Twofold's own hidden folder only). Before
    - **Web**: pass it to the build with `--dart-define=GOOGLE_SERVER_CLIENT_ID=<web client id>`.
 
 Saving a backup file works without any of this.
+
+## Website and search
+
+Every page has a unique title and description, a canonical URL, Open Graph and Twitter cards (with `assets/og-image.jpg`) and schema.org structured data: `WebSite`, `Organization`, `MobileApplication` and `FAQPage` on the home page, `Article` or `TechArticle` and breadcrumbs on the others. `robots.txt`, `sitemap.xml`, `site.webmanifest`, icons and a `404.html` are in `website/`. `checklist.html`, a family emergency information checklist, is the page written to bring in search traffic.
+
+`.github/scripts/check_website.py` runs on every pull request that touches the website. It fails if a page is missing a title, description, canonical URL, social card or structured data, if a link or anchor is broken, or if the sitemap doesn't match the pages. When you add a page, add it to `sitemap.xml` and give it the same `<head>` as the others.
+
+After the site is live:
+
+1. Add the site to [Google Search Console](https://search.google.com/search-console) as a domain property (verify with a DNS TXT record on `webappslab.com`, so no file or tag is needed), then submit `https://twofold.webappslab.com/sitemap.xml`. Do the same in [Bing Webmaster Tools](https://www.bing.com/webmasters), which can import from Search Console.
+2. Check the home page with the [Rich Results Test](https://search.google.com/test/rich-results) and a link preview in WhatsApp or Slack.
+3. Once the apps are in the stores: swap the "Soon" buttons for store links, add the store URLs to `sameAs` and `installUrl` in the home page's `MobileApplication` data along with the price (`offers`), and add `<meta name="apple-itunes-app" content="app-id=…">` for Safari's app banner.
+4. When you update a page, change its `lastmod` in `sitemap.xml` and its `dateModified`.
 
 ## Before release
 
